@@ -69,6 +69,12 @@ public class StudentManagementSystem {
             System.out.println("id输入格式不合法");
             return;
         }
+        for (Student student : students) {
+            if(student.getId() == id) {
+                System.out.println("学号重复,请重试");
+                return;
+            }
+        }
         System.out.print("请输入学生姓名: ");
         String name = scanner.next();
         students.add(new Student(id, name));
