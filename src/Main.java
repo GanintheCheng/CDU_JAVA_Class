@@ -1,4 +1,4 @@
-import System.StudentManagementSystem;
+import system.StudentManagementSystem;
 
 public class Main {
     public static void main(String[] args) {
