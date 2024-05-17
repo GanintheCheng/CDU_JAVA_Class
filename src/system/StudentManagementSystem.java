@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 public class StudentManagementSystem {
     private final List<Student> students = new ArrayList<>();
+    private final Scanner scanner = new Scanner(System.in);
 
     public void GoSystem() {
-        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("\n学生管理系统");
             System.out.println("1. 显示学生");
@@ -32,13 +32,13 @@ public class StudentManagementSystem {
                     displayStudents();
                     break;
                 case 2:
-                    addStudent(scanner);
+                    addStudent();
                     break;
                 case 3:
-                    deleteStudent(scanner);
+                    deleteStudent();
                     break;
                 case 4:
-                    searchStudent(scanner);
+                    searchStudent();
                     break;
                 case 5:
                     System.out.println("系统已退出。");
@@ -59,7 +59,7 @@ public class StudentManagementSystem {
         }
     }
 
-    private void addStudent(Scanner scanner) {
+    private void addStudent() {
         System.out.print("请输入学生学号: ");
         int id = 0;
         try {
@@ -70,7 +70,7 @@ public class StudentManagementSystem {
             return;
         }
         for (Student student : students) {
-            if(student.getId() == id) {
+            if (student.getId() == id) {
                 System.out.println("学号重复,请重试");
                 return;
             }
@@ -81,7 +81,7 @@ public class StudentManagementSystem {
         System.out.println("学生添加成功。");
     }
 
-    private void deleteStudent(Scanner scanner) {
+    private void deleteStudent() {
         System.out.print("请输入要删除的学生学号: ");
         int id = 0;
         try {
@@ -106,7 +106,7 @@ public class StudentManagementSystem {
         }
     }
 
-    private void searchStudent(Scanner scanner) {
+    private void searchStudent() {
         System.out.print("请输入学生学号或姓名: ");
         String keyword = scanner.next();
         boolean found = false;
